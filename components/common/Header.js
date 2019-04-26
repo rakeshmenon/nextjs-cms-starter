@@ -1,8 +1,8 @@
 import { withRouter } from 'next/router';
 import { Link } from '../../server/routes';
 
-const Header = ({ ctx, router }) => (
-  <div>
+const Header = ({ ctx, router, title }) => (
+  <div role="navigation">
     <Link route="/">
       <a style={styles.a} className={router.asPath === '/' ? 'active' : null}>
         <span>Home</span>
@@ -17,6 +17,7 @@ const Header = ({ ctx, router }) => (
         <span>About</span>
       </a>
     </Link>
+    <h1>{title}</h1>
   </div>
 );
 
