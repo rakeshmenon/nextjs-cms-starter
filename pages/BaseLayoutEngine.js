@@ -12,7 +12,7 @@ export default class BaseLayoutEngine extends React.Component {
           <title>{title}</title>
         </Head>
         <Header title={title} />
-        <main role="main">{layoutRenderer(layout)}</main>
+        <main>{layoutRenderer(layout)}</main>
       </>
     );
   }
