@@ -1,4 +1,6 @@
-# Next.js sample app with page authoring integration
+# Next.js CMS starter
+
+(In progress...)
 
 Assumption: Page information available through a sample page service - and dynamically importing required components
 We can create a mapper to transform service response to required structure assumed.
