@@ -1,5 +1,6 @@
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 const nextRuntimeDotenv = require('next-runtime-dotenv');
+const withTypescript = require('@zeit/next-typescript');
 
 const environment = process.env.NODE_ENV || 'development';
 
@@ -10,18 +11,20 @@ const withConfig = nextRuntimeDotenv({
 });
 
 module.exports = withConfig(
-  withBundleAnalyzer({
-    analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
-    analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
-    bundleAnalyzerConfig: {
-      server: {
-        analyzerMode: 'static',
-        reportFilename: '../../bundles/server.html'
-      },
-      browser: {
-        analyzerMode: 'static',
-        reportFilename: '../bundles/client.html'
+  withBundleAnalyzer(
+    withTypescript({
+      analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
+      analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
+      bundleAnalyzerConfig: {
+        server: {
+          analyzerMode: 'static',
+          reportFilename: '../../bundles/server.html'
+        },
+        browser: {
+          analyzerMode: 'static',
+          reportFilename: '../bundles/client.html'
+        }
       }
-    }
-  })
+    })
+  )
 );

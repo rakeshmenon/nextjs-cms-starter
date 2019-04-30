@@ -3,8 +3,8 @@ import ReactDOM from 'react-dom';
 import ExecutionEnvironment from 'exenv';
 import App, { Container } from 'next/app';
 import BaseComponent from './BaseLayoutEngine';
-import { Router } from '../server/routes';
 import getConfig from 'next/config';
+import { NextAppContext } from 'next/app';
 
 require('es6-promise').polyfill();
 require('isomorphic-fetch');
@@ -16,9 +16,9 @@ if (process.env.NODE_ENV !== 'production' && ExecutionEnvironment.canUseDOM) {
   axe(React, ReactDOM, 1000);
 }
 
-export default class MyApp extends App {
-  static async getInitialProps({ ctx }) {
-    let pageProps = {};
+export default class CustomApp extends App {
+  static async getInitialProps({ ctx }: NextAppContext) {
+    let pageProps: any = {};
 
     const response = await fetch(
       `${publicRuntimeConfig.PAGE_SERVICE_DOMAIN}/page-service${
