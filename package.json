@@ -9,7 +9,7 @@
     "export": "next export",
     "build:serve": "npm run build && npm run start",
     "start": "concurrently \"npm run mock-server\" \"NODE_ENV=production node server\"",
-    "mock-server": "canned -p 5000 --relaxed_accept=true ./mocks/"
+    "mock-server": "canned -p 5000 --relaxed_accept=true ./src/mocks/"
   },
   "dependencies": {
     "@zeit/next-bundle-analyzer": "^0.1.2",

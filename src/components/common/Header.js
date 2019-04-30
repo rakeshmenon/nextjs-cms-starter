@@ -1,5 +1,5 @@
 import { withRouter } from 'next/router';
-import { Link } from '../../server/routes';
+import { Link } from '../../../server/routes';
 
 const Header = ({ router, title }) => (
   <div role="navigation">

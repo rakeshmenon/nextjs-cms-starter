@@ -1,7 +1,7 @@
 import React from 'react';
 import { ThemeProvider } from 'styled-components';
 import { Grid, Row } from 'react-styled-flexboxgrid';
-import SubSection from '../regions/SubSection';
+import SubSection from './SubSection';
 import theme from '../lib/theme';
 
 const Section = ({ subsectionInfo, contexts }) => {
